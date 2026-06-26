@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Emirhan BADAT - Kişisel portfolio, projeler ve hobiler">
+  <title>Emirhan BADAT — Portfolio & Projeler</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Immediately set theme based on localStorage to prevent flash
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+  <div class="bg-grid"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">⟨ E.BADAT ⟩</div>
+      <ul class="navbar-links" id="navLinks">
+        <li><a href="#hero">Ana Sayfa</a></li>
+        <li><a href="#about">Hakkımda</a></li>
+        <li><a href="#projects">Projeler</a></li>
+        <li><a href="#skills">Yetenekler</a></li>
+        <li><a href="#contact">İletişim</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <div class="theme-toggle-wrapper">
+          <button class="theme-toggle" id="themeToggleBtn" aria-label="Tema Değiştir">☀️</button>
+          <div class="theme-tooltip" id="themeTooltip">
+            <span>Görünüm modunu buradan değiştirebilirsiniz</span>
+            <button class="theme-tooltip-close" id="closeThemeTooltip" aria-label="Kapat">×</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Yeni şeyler öğrenmeye açık
+        </div>
+        <p class="hero-greeting">Selam, ben</p>
+        <h1 class="hero-name">
+          <span class="gradient-text">Emirhan BADAT</span>
+        </h1>
+        <a href="profiles.html" class="hero-nickname" title="Oyun profillerimi gör">
+          @Subushaki
+        </a>
+        <p class="hero-tagline">
+          Sivil Havacılık mezunu, yazılıma meraklı, survival oyun bağımlısı 
+          ve ortaokuldan beri labirent çizen bir tuhaf adam. 
+          Hobi olarak web siteleri yapıyor, Roblox'ta oyun geliştiriyor 
+          ve tahta yay üretiyorum. Evet, tahta yay. 🏹
+        </p>
+        <div class="hero-tags">
+          <span class="hero-tag">💻 Web Geliştirme</span>
+          <span class="hero-tag">🎮 Oyun & Modlama</span>
+          <span class="hero-tag">🤖 Yapay Zeka Meraklısı</span>
+          <span class="hero-tag">🏹 Tahta Yay Yapımı</span>
+          <span class="hero-tag">🧩 Labirent Tasarımı</span>
+          <span class="hero-tag">🖥️ Donanım & PC Toplama</span>
+          <span class="hero-tag">🌍 Dil Öğrenme</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">
+            Projelerimi Keşfet
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            İletişime Geç
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section" id="about">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Hakkımda</div>
+        <h2 class="section-title">Kim Bu Adam?</h2>
+        <p class="section-subtitle">Biraz karışık bir profil ama anlatayım.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text animate-on-scroll">
+          <p>
+            <strong>Sivil Hava Ulaştırma İşletmeciliği</strong> önlisans mezunuyum ama hayat beni 
+            teknoloji ve yazılım dünyasına çekti. Klasik bir "eğitim aldım, sertifikam var" hikayesi 
+            değil bu — tamamen meraktan ve hobi olarak öğreniyorum.
+          </p>
+          <p>
+            Web geliştirme ile <strong>2024'ten beri</strong> uğraşıyorum. HTML, CSS öğrenirken 
+            bir yandan da yapay zeka araçlarının yardımıyla projeler çıkarmaya çalışıyorum. 
+            Doğru düzgün bir kurs almadım, "yaparak öğren" felsefesiyle ilerliyorum.
+          </p>
+          <p>
+            Ama beni asıl farklı kılan şey hobilerim: <strong>Ortaokuldan beri kareli defterlere 
+            labirent çiziyorum</strong> (2015'ten beri). Ayrıca <strong>tahta yay üretiyorum</strong>. 
+            Bir de tabii ki survival oyunlar — başta <strong>Minecraft</strong> olmak üzere 
+            her türlü hayatta kalma oyununun bağımlısıyım.
+          </p>
+        </div>
+
+        <div class="about-stats animate-on-scroll">
+          <div class="stat-card">
+            <div class="stat-number">2024</div>
+            <div class="stat-label">Yılından Beri AI ile Kod &amp; Web Geliştirme</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2015</div>
+            <div class="stat-label">Yılından Beri Labirent Çiziyorum</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Öğrenilen Dil Sayısı 🌍</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">2013</div>
+            <div class="stat-label">Yılından Beri Minecraft Dinazoru 🦖</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div class="interests-grid">
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">🧩</div>
+          <div>
+            <div class="interest-name">Labirent Tasarımı</div>
+            <div class="interest-desc">2015'ten beri kareli deftere labirent çiziyorum</div>
+          </div>
+        </div>
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">🏹</div>
+          <div>
+            <div class="interest-name">Tahta Yay Yapımı</div>
+            <div class="interest-desc">4 nesil yay ürettim, 5. nesil yolda</div>
+          </div>
+        </div>
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">🎮</div>
+          <div>
+            <div class="interest-name">Survival Oyunlar</div>
+            <div class="interest-desc">Minecraft başta olmak üzere her türlü</div>
+          </div>
+        </div>
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">💻</div>
+          <div>
+            <div class="interest-name">Web Geliştirme</div>
+            <div class="interest-desc">Hobi olarak site yapıyorum, yaparak öğreniyorum</div>
+          </div>
+        </div>
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">💻</div>
+          <div>
+            <div class="interest-name">Laptop &amp; Donanım</div>
+            <div class="interest-desc">Güncel donanım takibi ve Huawei MateBook (Ryzen 5 4600H | 8GB RAM) sistemim</div>
+          </div>
+        </div>
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">🌍</div>
+          <div>
+            <div class="interest-name">Dil Öğrenme</div>
+            <div class="interest-desc">İngilizce, İtalyanca, Arapça, Almanca</div>
+          </div>
+        </div>
+        <div class="interest-card animate-on-scroll">
+          <div class="interest-icon">🤖</div>
+          <div>
+            <div class="interest-name">Aktif Yapay Zekalar</div>
+            <div class="interest-desc">Claude Opus, Gemini (High), KIMI2</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section class="section" id="projects">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Projeler</div>
+        <h2 class="section-title">Neler Üzerinde Çalışıyorum?</h2>
+        <p class="section-subtitle">Büyük projeler değil belki ama hepsinde bir şeyler öğreniyorum. Başlıklara tıklayarak detayları gör.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: LOApexia -->
+        <div class="project-card animate-on-scroll" data-project="1">
+          <div class="project-header">
+            <div class="project-info">
+              <div class="project-category">Minecraft SMP/RP Sunucusu</div>
+              <h3 class="project-title">
+                <span class="project-emoji">⚔️</span>
+                LOApexia — Legends of Apexia
+              </h3>
+              <p class="project-short-desc">
+                +150 mod ve +80 rol içeren kapsamlı bir Minecraft SMP/RP sunucu projesi. 
+                Bir dostumla birlikte geliştiriyoruz.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag tag-active">Aktif</span>
+                <span class="project-tag">Minecraft</span>
+                <span class="project-tag">Modlama</span>
+                <span class="project-tag">Roleplay</span>
+                <span class="project-tag">Sunucu Yönetimi</span>
+              </div>
+            </div>
+            <div class="project-toggle">+</div>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p class="project-full-desc">
+                <strong>Legends of Apexia (LOApexia)</strong>, bir arkadaşımla birlikte oluşturduğumuz 
+                kapsamlı bir Minecraft SMP/RP sunucusudur. Survival ve roleplay unsurlarını bir arada 
+                sunmayı hedefliyoruz.
+                <br><br>
+                Sunucu <strong>150'den fazla mod</strong> ile zenginleştirilmiş olup, oyunculara 
+                <strong>80'den fazla farklı rol</strong> sunmaktadır. Mod uyumluluğu, denge ayarı 
+                ve performans optimizasyonu gibi konularla uğraşarak çok şey öğreniyorum.
+              </p>
+              <ul class="project-highlights">
+                <li>+150 mod ile zenginleştirilmiş oyun deneyimi</li>
+                <li>+80 farklı rol ve karakter sınıfı</li>
+                <li>Dostumla birlikte süregelen aktif geliştirme</li>
+                <li>Mod uyumluluğu ve sunucu optimizasyonu</li>
+                <li>Topluluk odaklı bir roleplay deneyimi</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://legendsofapexia.vercel.app/" target="_blank" rel="noopener" class="project-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Web Sitesi
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: English Time -->
+        <div class="project-card animate-on-scroll" data-project="2">
+          <div class="project-header">
+            <div class="project-info">
+              <div class="project-category">Web Uygulama / Eğitim Platformu</div>
+              <h3 class="project-title">
+                <span class="project-emoji">📖</span>
+                English Time — İngilizce Öğrenme Platformu
+              </h3>
+              <p class="project-short-desc">
+                6 farklı dil uygulamasının eksiklerinden doğan, kayıt sistemi ve akıllı quiz 
+                altyapısına sahip kişisel İngilizce öğrenme platformu. İkinci geniş kapsamlı web projem.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag tag-active">Aktif</span>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Vercel</span>
+                <span class="project-tag">AI Destekli 🤖</span>
+              </div>
+            </div>
+            <div class="project-toggle">+</div>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p class="project-full-desc">
+                Bu projeye rastgele başlamadım. Yaklaşık <strong>1 yıl boyunca 6 farklı dil 
+                uygulamasında</strong> İngilizce öğrenmeye çalıştım. Her birinin tarzı farklıydı — 
+                biri cümle ve gramer odaklı, diğeri konuşma ağırlıklı, bir diğeri kalıplar ve 
+                film kesitleriyle öğretiyordu. Bazıları kullanımı komplike, bazıları kolay ama 
+                bir yerden sonra <strong>paralı</strong>.
+                <br><br>
+                Sonunda dedim ki: <strong>"Basit ve öğrenilebilir bilgiyi kendim sunayım."</strong> 
+                Kelime-kelime çeviri mantığıyla bir site oluşturmaya karar verdim. Ama sadece 
+                statik bir site değil — <strong>yapay zeka (Claude)</strong> yardımıyla 
+                data barındırabilen, kayıt olunca doğru/yanlış bilgilerini ayırt edebilen 
+                bir sistem tasarladım.
+                <br><br>
+                Aslında web ve oyun projelerimin hepsi Claude sayesinde hayata geçiyor — 
+                kodlamayı öğrenirken bir yandan da gerçek projeler çıkarabiliyorum.
+              </p>
+              <ul class="project-highlights">
+                <li>1 yıllık 6 farklı dil uygulaması deneyiminden doğdu</li>
+                <li>Kayıt sistemi ile kişisel ilerleme takibi</li>
+                <li>Akıllı quiz: yanlışlar, bilinenler ve bilinmeyenler ayrı ayrı</li>
+                <li>Beta aşamasında global chat özelliği</li>
+                <li>İkinci geniş kapsamlı web projem</li>
+                <li>Hedef: sadece kendim değil, başkaları için de basit bir öğrenme yolu</li>
+                <li>Yapay zeka (Claude) ile birlikte geliştiriliyor 🤖</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://english-time-64wa.vercel.app/" target="_blank" rel="noopener" class="project-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Siteyi Ziyaret Et
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: ProHunt (Roblox) -->
+        <div class="project-card animate-on-scroll" data-project="3">
+          <div class="project-header">
+            <div class="project-info">
+              <div class="project-category">Roblox Oyun Geliştirme</div>
+              <h3 class="project-title">
+                <span class="project-emoji">🎯</span>
+                ProHunt — Roblox PropHunt Oyunu
+              </h3>
+              <p class="project-short-desc">
+                Roblox'taki PropHunt tekelini kırmak için yola çıktığım, 
+                çocukluk nostaljisinden ilham alan bir oyun projesi. Yapım aşamasında.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag tag-sparetime">Boş Zaman Uğraşı</span>
+                <span class="project-tag">Roblox Studio</span>
+                <span class="project-tag">Lua</span>
+                <span class="project-tag">PropHunt</span>
+                <span class="project-tag">Hide and Seek</span>
+                <span class="project-tag">Yapım Aşamasında 🔨</span>
+                <span class="project-tag">AI Destekli 🤖</span>
+              </div>
+            </div>
+            <div class="project-toggle">+</div>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p class="project-full-desc">
+                Roblox'ta şu an zirvede sadece <strong>3 PropHunt haritası</strong> var ve hepsi 
+                piyasayı domine ediyor. Her birinin sunduğu deneyim farklı ama hiçbiri tam olarak 
+                aradığım tadı vermiyor.
+                <br><br>
+                Çocukken mobilde onlarca farklı oyunda PropHunt oynadım — o zamanki heyecan, 
+                özgürlük hissi ve sadelik bambaşkaydı. <strong>ProHunt</strong> ile yapmak istediğim şey 
+                tam olarak bu: <strong>o nostaljiyi geri getirmek.</strong> Geçmişin o "bir daha bir 
+                daha oynayasım var" hissini modern haritalara yansıtmak ve oyun sistemini 
+                baştan sona <strong>gerçekten keyif alınacak</strong> şekilde tasarlamak istiyorum.
+                <br><br>
+                Bu aynı zamanda o tekel duruma karşı kendimi gösterme, öne çıkma motivasyonum. 
+                Proje hâlâ yapım aşamasında ama bittiğinde <strong>"işte bu"</strong> diyebileceğim 
+                bir oyun olacak.
+              </p>
+              <ul class="project-highlights">
+                <li>Roblox PropHunt sahnesindeki tekele meydan okuma</li>
+                <li>Çocukluk dönemi mobil PropHunt nostaljisinden ilham</li>
+                <li>Keyif odaklı oyun sistemi tasarımı</li>
+                <li>Nostaljiyi modern haritalara yansıtma çabası</li>
+                <li>Aktif geliştirme süreci — yakında yayında</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://www.roblox.com/" target="_blank" rel="noopener" class="project-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Roblox'ta Oyna (Yakında)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: BuildDefend (Roblox) -->
+        <div class="project-card animate-on-scroll" data-project="4">
+          <div class="project-header">
+            <div class="project-info">
+              <div class="project-category">Roblox Oyun Geliştirme</div>
+              <h3 class="project-title">
+                <span class="project-emoji">🏗️</span>
+                BuildDefend — Kur, Savun, Hayatta Kal
+              </h3>
+              <p class="project-short-desc">
+                Savunma/strateji tutkumdan doğan ilk deneme projem. Yapılarını kur, 
+                dalgayı başlat ve kaybedene kadar ayakta kalmaya çalış.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag tag-sparetime">Boş Zaman Uğraşı</span>
+                <span class="project-tag">Roblox Studio</span>
+                <span class="project-tag">Lua</span>
+                <span class="project-tag">Tower/Build Defense</span>
+                <span class="project-tag">Strateji</span>
+                <span class="project-tag">Yapım Aşamasında 🔨</span>
+                <span class="project-tag">AI Destekli 🤖</span>
+              </div>
+            </div>
+            <div class="project-toggle">+</div>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p class="project-full-desc">
+                Roblox'ta çok sevdiğim bir BuildDefend oyunu var — gayet sade ama bir o kadar 
+                bağımlılık yapan bir yapısı var. Savunma birimleri, duvarlar, türlerine göre 
+                süreli gelen tüccarlar ve her seviyede giderek zorlaşan dalgalar. Düşman çeşitliliği 
+                çok değişmese de <strong>bosslar aşırı güçlü</strong>. Başta keyifli ama ilerledikçe 
+                dalga süreleri 1-2 saatten 3-4 saate çıkıyor ve artıyor.
+                <br><br>
+                İlham kaynağım bu oyun ve genel olarak <strong>savunma/strateji oyunlarına olan 
+                tutkum</strong>. İddialı bir proje değil — bu benim <strong>ilk deneme projem</strong>. 
+                Ama oynanış mantığını güzel simüle edebileceğime inanıyorum.
+                <br><br>
+                Konsept basit: <strong>Yapılarını ve savunmalarını oluştur → dalgayı başlat → 
+                her dalga bitince yeni dalga gelir → kaybedene veya dalgalar durana kadar 
+                savunman ayakta kalmaya çalışıyor.</strong> Sade ama stratejik.
+              </p>
+              <ul class="project-highlights">
+                <li>Roblox'taki bir BuildDefend oyunundan ilham</li>
+                <li>Savunma birimleri, duvarlar ve dalga sistemi</li>
+                <li>Kur → Başlat → Hayatta Kal döngüsü</li>
+                <li>İlk Roblox deneme projem — yaparak öğrenme</li>
+                <li>Savunma/strateji türüne olan tutkudan doğdu</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://www.roblox.com/" target="_blank" rel="noopener" class="project-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                  Roblox'ta Oyna (Yakında)
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Labirent -->
+        <div class="project-card animate-on-scroll" data-project="5">
+          <div class="project-header">
+            <div class="project-info">
+              <div class="project-category">Yaratıcı Hobi / Sanat</div>
+              <h3 class="project-title">
+                <span class="project-emoji">🧩</span>
+                Labirent Çizimleri — 2015'ten Beri, ~20 Eser
+              </h3>
+              <p class="project-short-desc">
+                Ortaokuldan beri kareli defterlere labirent çiziyorum. Çözücülerin 
+                mantığını inceleyip her yeni labirenti daha zorlu tasarlıyorum. Son eserim: "Masterpiece".
+              </p>
+              <div class="project-tags">
+                <span class="project-tag tag-hobby">Hobi</span>
+                <span class="project-tag">Puzzle Tasarımı</span>
+                <span class="project-tag">~20 Labirent</span>
+                <span class="project-tag">2015'ten Beri</span>
+                <span class="project-tag">Masterpiece ⭐</span>
+              </div>
+            </div>
+            <div class="project-toggle">+</div>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p class="project-full-desc">
+                Her şey ortaokulda bir sınıf arkadaşımla defterden oyun oynamakla başladı — 
+                rastgele çizilmiş ülke toprakları, basit asker güçleri ve bölge ele geçirme. 
+                Sonra bir gün, muhtemelen puzzle merakımdan doğan bir şekilde, 
+                <strong>ilk labirentimi çizdim.</strong> Kolay değildi, "normal" denebilirdi.
+                <br><br>
+                Sınıftaki arkadaşlarıma çözdürdüğümde bir şey fark ettim: 
+                <strong>çıkmaz sokaklara girdiklerinde aldığım keyif başka bir şeye benzemiyordu.</strong> 
+                Tepkileri, şaşkınlıkları ve "yaa burası da kapalı!" anları beni gülümsetti. 
+                O andan itibaren bir şey değişti.
+                <br><br>
+                Çözenlerin ilerleyiş mantıklarını dikkatle incelemeye başladım. "Çözücü" dediğim 
+                insanların hangi yolları tercih ettiğini, hangi köşelerde yanıldığını öğrendim ve 
+                bunu <strong>bir taktiğe dönüştürdüm.</strong> Her yeni labirentimde daha alışılmadık 
+                rotalar, daha fazla tuzak ve daha çok çıkmaz yol oldu. Sonra tekrar çözdürdüm — 
+                ve yine o keyif, yine o gülümseme.
+                <br><br>
+                Full konsantreyle çizsem <strong>en az 2 saat</strong> sürüyordu. Her çizgi, her köşe 
+                ve her tuzaklı yol benim için bir anlam taşıyordu. <strong>Gerçekten bir sanattı 
+                benim için.</strong>
+                <br><br>
+                Bugüne kadar yaklaşık <strong>~20 labirent</strong> çizdim. Geçtiğimiz aylarda 
+                <strong>"Masterpiece"</strong> adını verdiğim son eserimi tamamladım — yılların 
+                tecrübesi ve gözlemi bu labirentte. Zorluk derecesi bayağı yüksek. 
+                Hobimi bırakmadım ama şimdilik bir köşeye koydum.
+              </p>
+              <ul class="project-highlights">
+                <li>2015'ten beri süregelen süreçte yaklaşık 20 labirent</li>
+                <li>Çözücülerin mantığını analiz edip her seferinde daha zor tasarım</li>
+                <li>Her çizginin ve çıkmaz yolun kişisel bir anlamı var</li>
+                <li>Son eser: "Masterpiece" — yılların birikimi tek bir labirentte</li>
+                <li>Full konsantreyle minimum 2 saat çizim süresi</li>
+                <li>Hobi aktif değil ama bırakılmadı — bir köşede bekliyor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Tahta Yay -->
+        <div class="project-card animate-on-scroll" data-project="6">
+          <div class="project-header">
+            <div class="project-info">
+              <div class="project-category">El İşi / Zanaatkarlık</div>
+              <h3 class="project-title">
+                <span class="project-emoji">🏹</span>
+                Tahta Yay Üretimi — 4 Nesil
+              </h3>
+              <p class="project-short-desc">
+                Ahşap spatula çubuklarından (dondurma çubukları) elle şekil verip 
+                birleştirerek yaptığım yaylar. 4 nesilde avuç içi boyutundan 84 cm'e ulaştı.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag tag-hobby">Hobi</span>
+                <span class="project-tag">El İşi</span>
+                <span class="project-tag">Ahşap Spatula</span>
+                <span class="project-tag">Prototipleme</span>
+                <span class="project-tag">4 Nesil</span>
+              </div>
+            </div>
+            <div class="project-toggle">+</div>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p class="project-full-desc">
+                En "yazılım dışı" projem ama bence en eğlencelisi. Malzemem basit: 
+                <strong>ahşap spatula çubukları</strong> (dondurma çubukları). Her parçaya 
+                tek tek şekil veriyorum, sonra parçaları birleştiriyorum. Yapıştırma ve 
+                bağlama için <strong>beyaz tutkal</strong>, <strong>gri koli bandı</strong> ve 
+                <strong>büyük boy metal ataşlar</strong> kullanıyorum — eklem yerlerini pense ile 
+                büküp bağlıyorum.
+                <br><br>
+                Her nesilde boyut ve kalite arttı:
+              </p>
+              <ul class="project-highlights">
+                <li><strong>1. Nesil</strong> — El büyüklüğünde, ilk deneme</li>
+                <li><strong>2. Nesil</strong> — Biraz daha uzun, ilkinden gelişmiş</li>
+                <li><strong>3. Nesil</strong> — Bir kol kadar uzun</li>
+                <li><strong>4. Nesil</strong> — 84 cm, en büyük ve en gelişmiş versiyon</li>
+                <li><strong>5. Nesil</strong> — Planlanıyor, muhtemelen daha uzun ve gelişmiş</li>
+              </ul>
+              <p class="project-full-desc" style="margin-top: 16px;">
+                <strong>Malzemeler:</strong> Ahşap spatula çubukları + beyaz tutkal + 
+                gri koli bandı + büyük boy metal ataş (pense ile eklem bağlama)
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section class="section" id="skills">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Yetenekler</div>
+        <h2 class="section-title">Neler Biliyorum (ve Öğreniyorum)</h2>
+        <p class="section-subtitle">Uzman değilim ama öğrenmeye devam ediyorum.</p>
+      </div>
+
+      <div class="skills-container">
+        <div class="skill-group animate-on-scroll">
+          <div class="skill-group-title">
+            <span class="skill-group-icon">🌐</span>
+            AI Destekli Web Geliştirme (öğreniyorum)
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">HTML</span>
+            <span class="skill-item">CSS</span>
+            <span class="skill-item">JavaScript</span>
+            <span class="skill-item">Supabase</span>
+            <span class="skill-item">Vercel</span>
+          </div>
+        </div>
+        <div class="skill-group animate-on-scroll">
+          <div class="skill-group-title">
+            <span class="skill-group-icon">🎮</span>
+            AI Destekli Oyun Geliştirme (öğreniyorum)
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Roblox Studio</span>
+            <span class="skill-item">Lua</span>
+            <span class="skill-item">Oyun Tasarımı</span>
+            <span class="skill-item">Harita Tasarlama</span>
+          </div>
+        </div>
+        <div class="skill-group animate-on-scroll">
+          <div class="skill-group-title">
+            <span class="skill-group-icon">⚒️</span>
+            Minecraft Sunucu Yönetimi &amp; Modlama (Kurucu)
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Sunucu Kurulumu &amp; Yönetim</span>
+            <span class="skill-item">Özel Craft &amp; Tarif Düzenleme</span>
+            <span class="skill-item">Mod Balans &amp; Sınırlandırma</span>
+            <span class="skill-item">Rol &amp; Senaryo Tasarımı (RP)</span>
+            <span class="skill-item">PrismLauncher Özelleştirme</span>
+            <span class="skill-item">Deneysel Mod Forklama (FiveM Tarzı)</span>
+            <span class="skill-item">Web Sitesi Temelleri</span>
+            <span class="skill-item">Performans Optimizasyonu</span>
+          </div>
+        </div>
+        <div class="skill-group animate-on-scroll">
+          <div class="skill-group-title">
+            <span class="skill-group-icon">🌍</span>
+            Dil Bilgisi
+          </div>
+          <div class="lang-skills">
+            <div class="lang-item">
+              <div class="lang-header">
+                <span class="lang-flag">🇬🇧</span>
+                <span class="lang-name">İngilizce</span>
+                <span class="lang-level level-a2">A2</span>
+              </div>
+              <div class="lang-bar"><div class="lang-bar-fill" style="width: 33%"></div></div>
+              <div class="lang-note">B2'ye kadar kurumda eğitim alıyorum</div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-header">
+                <span class="lang-flag">🇮🇹</span>
+                <span class="lang-name">İtalyanca</span>
+                <span class="lang-level level-a1">A1</span>
+              </div>
+              <div class="lang-bar"><div class="lang-bar-fill" style="width: 17%"></div></div>
+              <div class="lang-note">Kendi çabamla, günlük basit cümleler</div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-header">
+                <span class="lang-flag">🇸🇦</span>
+                <span class="lang-name">Arapça</span>
+                <span class="lang-level level-a1">A1</span>
+              </div>
+              <div class="lang-bar"><div class="lang-bar-fill" style="width: 17%"></div></div>
+              <div class="lang-note">Öğrenmeyi planlıyorum</div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-header">
+                <span class="lang-flag">🇩🇪</span>
+                <span class="lang-name">Almanca</span>
+                <span class="lang-level level-soon">Yakında</span>
+              </div>
+              <div class="lang-bar"><div class="lang-bar-fill" style="width: 5%"></div></div>
+              <div class="lang-note">İngilizce kursumla hediye A1 kursu alacağım</div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-group animate-on-scroll">
+          <div class="skill-group-title">
+            <span class="skill-group-icon">🛠️</span>
+            Çok Yönlü Yetenekler &amp; Hobiler
+          </div>
+          <div class="skill-items">
+            <span class="skill-item">Git &amp; GitHub</span>
+            <span class="skill-item">Prompt Engineering (AI)</span>
+            <span class="skill-item">Donanım &amp; Sistem Takibi</span>
+            <span class="skill-item">Ahşap Zanaatkarlığı (El Yapımı)</span>
+            <span class="skill-item">Puzzle &amp; Seviye Tasarımı</span>
+            <span class="skill-item">Sivil Havacılık Bilgisi ✈️</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="section" id="contact">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">İletişim</div>
+        <h2 class="section-title">Bana Ulaş</h2>
+        <p class="section-subtitle">Bir şey sormak mı istiyorsun? Sohbet edelim!</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <a href="mailto:emirhan.bdt@gmail.com" class="contact-card animate-on-scroll">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">E-posta (Doğrudan İletişim)</div>
+              <div class="contact-value">emirhan.bdt@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/emirhan.bdt_/" target="_blank" rel="noopener" class="contact-card animate-on-scroll">
+            <div class="contact-icon">📸</div>
+            <div>
+              <div class="contact-label">Instagram (Hızlı İletişim)</div>
+              <div class="contact-value">@emirhan.bdt_</div>
+            </div>
+          </a>
+          <a href="https://github.com/Subushaki" target="_blank" rel="noopener" class="contact-card animate-on-scroll">
+            <div class="contact-icon">🐙</div>
+            <div>
+              <div class="contact-label">GitHub (Geliştirici Profili)</div>
+              <div class="contact-value">github.com/Subushaki</div>
+            </div>
+          </a>
+          <a href="https://www.youtube.com/@subushaki" target="_blank" rel="noopener" class="contact-card animate-on-scroll">
+            <div class="contact-icon">🎬</div>
+            <div>
+              <div class="contact-label">YouTube (Kanalım)</div>
+              <div class="contact-value">@subushaki</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="contact-cta animate-on-scroll">
+          <h3>Selam! 👋</h3>
+          <p>Projelerim hakkında konuşmak, birlikte bir şeyler yapmak veya sadece bilgi almak için mesaj yazabilirsiniz.</p>
+          <a href="https://www.instagram.com/emirhan.bdt_/" target="_blank" rel="noopener" class="btn-primary">
+            Instagram'dan Ulaş
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">
+        © 2026 Emirhan BADAT — Sevgi ve ☕ ile kodlandı.
+      </div>
+      <div class="footer-social">
+        <a href="https://github.com/Subushaki" target="_blank" rel="noopener" aria-label="GitHub">🐙</a>
+        <a href="https://www.instagram.com/emirhan.bdt_/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+        <a href="https://www.youtube.com/@subushaki" target="_blank" rel="noopener" aria-label="YouTube">🎬</a>
+        <a href="mailto:emirhan.bdt@gmail.com" aria-label="E-posta">✉️</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Yukarı çık">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

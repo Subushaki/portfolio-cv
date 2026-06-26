@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Subushaki - Oyun ve dijital platform profilleri">
+  <title>Subushaki — Oyun Profilleri</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Immediately set theme based on localStorage to prevent flash
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+  <style>
+    /* ========== PROFILES PAGE SPECIFIC ========== */
+    .profiles-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 24px 60px;
+    }
+
+    .profiles-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .profiles-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 40px rgba(124, 92, 252, 0.3);
+      animation: fadeSlideUp 0.6s ease-out;
+    }
+
+    .profiles-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      animation: fadeSlideUp 0.6s ease-out 0.1s both;
+    }
+
+    .profiles-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      animation: fadeSlideUp 0.6s ease-out 0.2s both;
+    }
+
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: var(--transition-smooth);
+      animation: fadeSlideUp 0.6s ease-out both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card:nth-child(1) { animation-delay: 0.3s; }
+    .profile-card:nth-child(2) { animation-delay: 0.35s; }
+    .profile-card:nth-child(3) { animation-delay: 0.4s; }
+    .profile-card:nth-child(4) { animation-delay: 0.45s; }
+    .profile-card:nth-child(5) { animation-delay: 0.5s; }
+    .profile-card:nth-child(6) { animation-delay: 0.55s; }
+
+    .profile-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: var(--transition-smooth);
+    }
+
+    .profile-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .profile-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Platform-specific accent colors */
+    .profile-card[data-platform="steam"]::before { background: linear-gradient(90deg, #1b2838, #66c0f4); }
+    .profile-card[data-platform="steam"]:hover { border-color: #66c0f4; box-shadow: 0 0 30px rgba(102, 192, 244, 0.15); }
+
+    .profile-card[data-platform="steamdb"]::before { background: linear-gradient(90deg, #1a3a4a, #4fc3f7); }
+    .profile-card[data-platform="steamdb"]:hover { border-color: #4fc3f7; box-shadow: 0 0 30px rgba(79, 195, 247, 0.15); }
+
+    .profile-card[data-platform="xbox"]::before { background: linear-gradient(90deg, #107c10, #52b043); }
+    .profile-card[data-platform="xbox"]:hover { border-color: #52b043; box-shadow: 0 0 30px rgba(82, 176, 67, 0.15); }
+
+    .profile-card[data-platform="epic"]::before { background: linear-gradient(90deg, #2a2a2a, #888); }
+    .profile-card[data-platform="epic"]:hover { border-color: #888; box-shadow: 0 0 30px rgba(136, 136, 136, 0.15); }
+
+    .profile-card[data-platform="discord"]::before { background: linear-gradient(90deg, #5865f2, #7984f5); }
+    .profile-card[data-platform="discord"]:hover { border-color: #5865f2; box-shadow: 0 0 30px rgba(88, 101, 242, 0.15); }
+
+    .profile-card[data-platform="ea"]::before { background: linear-gradient(90deg, #ff4747, #ff7043); }
+    .profile-card[data-platform="ea"]:hover { border-color: #ff4747; box-shadow: 0 0 30px rgba(255, 71, 71, 0.15); }
+
+    .profile-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-glass-strong);
+      border-radius: var(--radius-md);
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-platform {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .profile-username {
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .profile-detail {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .profile-arrow {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      transition: var(--transition-fast);
+    }
+
+    .profile-card:hover .profile-arrow {
+      color: var(--text-primary);
+      transform: translateX(4px);
+    }
+
+    .copyable-card {
+      cursor: pointer;
+    }
+
+    .copy-indicator {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      transition: var(--transition-fast);
+    }
+
+    .copyable-card:hover .copy-indicator {
+      color: var(--text-primary);
+      transform: scale(1.1);
+    }
+
+    .card-copy-btn {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      z-index: 2;
+    }
+
+    .card-copy-btn:hover {
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .profiles-back {
+      margin-top: 48px;
+      animation: fadeSlideUp 0.6s ease-out 0.7s both;
+    }
+
+    /* SteamDB info banner */
+    .steamdb-banner {
+      max-width: 900px;
+      width: 100%;
+      margin-top: 40px;
+      padding: 24px 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      animation: fadeSlideUp 0.6s ease-out 0.65s both;
+    }
+
+    .steamdb-banner-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .steamdb-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .steamdb-stat {
+      text-align: center;
+      padding: 16px 12px;
+      background: var(--bg-glass);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .steamdb-stat:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-2);
+      box-shadow: 0 4px 20px rgba(0, 212, 170, 0.15);
+    }
+
+    .steamdb-stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .steamdb-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .steamdb-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .steamdb-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-2);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+
+    .steamdb-link:hover {
+      color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+  </div>
+  <div class="bg-grid"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">⟨ E.BADAT ⟩</div>
+      <ul class="navbar-links" id="navLinks">
+        <li><a href="index.html">← Ana Sayfa</a></li>
+      </ul>
+      <div class="navbar-actions">
+        <div class="theme-toggle-wrapper">
+          <button class="theme-toggle" id="themeToggleBtn" aria-label="Tema Değiştir">☀️</button>
+          <div class="theme-tooltip" id="themeTooltip">
+            <span>Görünüm modunu buradan değiştirebilirsiniz</span>
+            <button class="theme-tooltip-close" id="closeThemeTooltip" aria-label="Kapat">×</button>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="profiles-page">
+
+      <div class="profiles-header">
+        <div class="profiles-avatar">🎮</div>
+        <h1 class="profiles-name">Subushaki</h1>
+        <p class="profiles-subtitle">Oyun & dijital platform profillerim</p>
+      </div>
+
+      <div class="profiles-grid">
+
+        <!-- Steam -->
+        <a href="https://steamcommunity.com/profiles/76561199224737218/" target="_blank" rel="noopener" class="profile-card" data-platform="steam">
+          <div class="profile-icon">🎮</div>
+          <div class="profile-info">
+            <div class="profile-platform">Steam</div>
+            <div class="profile-username">Subushaki</div>
+            <div class="profile-detail">Ana oyun platformum</div>
+          </div>
+          <span class="profile-arrow">→</span>
+        </a>
+
+        <!-- SteamDB -->
+        <a href="https://steamdb.info/calculator/76561199224737218/" target="_blank" rel="noopener" class="profile-card" data-platform="steamdb">
+          <div class="profile-icon">📊</div>
+          <div class="profile-info">
+            <div class="profile-platform">SteamDB</div>
+            <div class="profile-username">Hesap Değerleri</div>
+            <div class="profile-detail">Koleksiyon & istatistikler</div>
+          </div>
+          <span class="profile-arrow">→</span>
+        </a>
+
+        <!-- Xbox / Game Pass -->
+        <a href="https://www.xbox.com/tr-TR/play/user/Subushaki" target="_blank" rel="noopener" class="profile-card" data-platform="xbox">
+          <div class="profile-icon">🟢</div>
+          <div class="profile-info">
+            <div class="profile-platform">Xbox Live / Game Pass</div>
+            <div class="profile-username">Subushaki</div>
+            <div class="profile-detail">Xbox & PC Gaming</div>
+          </div>
+          <span class="profile-arrow">→</span>
+        </a>
+
+        <!-- Epic Games -->
+        <div class="profile-card copyable-card" data-platform="epic" data-copy-value="Subushaki">
+          <div class="profile-icon">⚡</div>
+          <div class="profile-info">
+            <div class="profile-platform">Epic Games</div>
+            <div class="profile-username">Subushaki</div>
+            <div class="profile-detail">Beni Epic Games'ten ekleyebilirsiniz! (Kopyalamak için tıkla)</div>
+          </div>
+          <span class="copy-indicator">📋</span>
+        </div>
+
+        <!-- Discord -->
+        <a href="https://discord.com/users/919666967521161267" target="_blank" rel="noopener" class="profile-card" data-platform="discord" data-copy-value="subushaki">
+          <div class="profile-icon">💬</div>
+          <div class="profile-info">
+            <div class="profile-platform">Discord</div>
+            <div class="profile-username">subushaki</div>
+            <div class="profile-detail">ID: 919666967521161267 (Profil için tıkla)</div>
+          </div>
+          <button class="card-copy-btn" aria-label="Kullanıcı adını kopyala" title="Kullanıcı adını kopyala">📋</button>
+        </a>
+
+        <!-- EA / Origin -->
+        <div class="profile-card copyable-card" data-platform="ea" data-copy-value="Subushaki">
+          <div class="profile-icon">🔴</div>
+          <div class="profile-info">
+            <div class="profile-platform">EA / Origin</div>
+            <div class="profile-username">Subushaki</div>
+            <div class="profile-detail">Beni EA App'ten ekleyebilirsiniz! (Kopyalamak için tıkla)</div>
+          </div>
+          <span class="copy-indicator">📋</span>
+        </div>
+
+      </div>
+
+      <!-- SteamDB Stats Banner -->
+      <div class="steamdb-banner">
+        <div class="steamdb-banner-title">
+          📊 Steam Hesap İstatistikleri
+        </div>
+        <div class="steamdb-stats" id="steamdbStats">
+          <div class="steamdb-stat">
+            <div class="steamdb-stat-value" id="steamGames">363</div>
+            <div class="steamdb-stat-label">Oyun Sayısı</div>
+          </div>
+          <div class="steamdb-stat">
+            <div class="steamdb-stat-value" id="steamValue">$601</div>
+            <div class="steamdb-stat-label">Hesap Değeri (MENA-USD)</div>
+          </div>
+          <div class="steamdb-stat">
+            <div class="steamdb-stat-value" id="steamHours">2.911 sa</div>
+            <div class="steamdb-stat-label">Toplam Saat</div>
+          </div>
+          <div class="steamdb-stat">
+            <div class="steamdb-stat-value" id="steamLevel">24</div>
+            <div class="steamdb-stat-label">Steam Level</div>
+          </div>
+        </div>
+        <p class="steamdb-note">
+          Güncel değerler için → 
+          <a href="https://steamdb.info/calculator/76561199224737218/" target="_blank" rel="noopener" class="steamdb-link">
+            SteamDB Calculator'da gör ↗
+          </a>
+        </p>
+      </div>
+
+      <div class="profiles-back">
+        <a href="index.html" class="btn-secondary">
+          ← Ana Sayfaya Dön
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-text">
+        © 2026 Emirhan BADAT — Sevgi ve ☕ ile kodlandı.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Cursor glow
+    const cursorGlow = document.getElementById('cursorGlow');
+    let cursorX = 0, cursorY = 0, glowX = 0, glowY = 0;
+    document.addEventListener('mousemove', (e) => { cursorX = e.clientX; cursorY = e.clientY; });
+    function animateCursorGlow() {
+      glowX += (cursorX - glowX) * 0.08;
+      glowY += (cursorY - glowY) * 0.08;
+      cursorGlow.style.left = glowX + 'px';
+      cursorGlow.style.top = glowY + 'px';
+      requestAnimationFrame(animateCursorGlow);
+    }
+    animateCursorGlow();
+    if ('ontouchstart' in window) cursorGlow.style.display = 'none';
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // SteamDB Stats Counter Animation
+    const steamStats = [
+      { id: 'steamGames', value: 363, prefix: '', suffix: '' },
+      { id: 'steamValue', value: 601, prefix: '$', suffix: '' },
+      { id: 'steamHours', value: 2911, prefix: '', suffix: ' sa' },
+      { id: 'steamLevel', value: 24, prefix: '', suffix: '' }
+    ];
+
+    const statsSection = document.querySelector('.steamdb-banner');
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          steamStats.forEach(stat => {
+            const el = document.getElementById(stat.id);
+            if (!el) return;
+
+            let current = 0;
+            const target = stat.value;
+            const duration = 1500; // ms
+            const stepTime = 30; // ms
+            const steps = duration / stepTime;
+            const increment = target / steps;
+
+            const interval = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                current = target;
+                clearInterval(interval);
+              }
+
+              let displayVal = Math.floor(current);
+              if (stat.id === 'steamHours') {
+                displayVal = Math.floor(current).toLocaleString('tr-TR');
+              }
+
+              el.textContent = (stat.prefix || '') + displayVal + (stat.suffix || '');
+            }, stepTime);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+
+    // Copy to clipboard functionality
+    document.querySelectorAll('.copyable-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const value = card.getAttribute('data-copy-value');
+        navigator.clipboard.writeText(value).then(() => {
+          const detail = card.querySelector('.profile-detail');
+          const originalText = detail.textContent;
+          const indicator = card.querySelector('.copy-indicator');
+          const originalIndicator = indicator.textContent;
+          
+          detail.textContent = 'Panoya kopyalandı! ✔️';
+          detail.style.color = 'var(--accent-2)';
+          indicator.textContent = '✔️';
+          indicator.style.color = 'var(--accent-2)';
+          
+          setTimeout(() => {
+            detail.textContent = originalText;
+            detail.style.color = '';
+            indicator.textContent = originalIndicator;
+            indicator.style.color = '';
+          }, 2000);
+        });
+      });
+    });
+
+    // Copy button inside hybrid card (Discord)
+    document.querySelectorAll('.card-copy-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const card = btn.closest('.profile-card');
+        const value = card.getAttribute('data-copy-value');
+        
+        navigator.clipboard.writeText(value).then(() => {
+          const detail = card.querySelector('.profile-detail');
+          const originalText = detail.textContent;
+          const originalBtnText = btn.textContent;
+          
+          detail.textContent = 'Kullanıcı adı kopyalandı! ✔️';
+          detail.style.color = 'var(--accent-2)';
+          btn.textContent = '✔️';
+          btn.style.background = 'var(--accent-2)';
+          btn.style.borderColor = 'var(--accent-2)';
+          btn.style.color = '#fff';
+          
+          setTimeout(() => {
+            detail.textContent = originalText;
+            detail.style.color = '';
+            btn.textContent = originalBtnText;
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.style.color = '';
+          }, 2000);
+        });
+      });
+    });
+
+    // ========== THEME & TOOLTIP TOGGLE ==========
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const themeTooltip = document.getElementById('themeTooltip');
+    const closeThemeTooltip = document.getElementById('closeThemeTooltip');
+
+    if (themeToggleBtn) {
+      const updateThemeButton = (theme) => {
+        themeToggleBtn.textContent = theme === 'dark' ? '🌙' : '☀️';
+      };
+
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      updateThemeButton(currentTheme);
+
+      // Function to dismiss tooltip
+      const dismissTooltip = () => {
+        if (themeTooltip) {
+          themeTooltip.classList.remove('show');
+        }
+        localStorage.setItem('theme-tooltip-closed', 'true');
+      };
+
+      // Show tooltip with a slight delay if not closed before
+      const isTooltipClosed = localStorage.getItem('theme-tooltip-closed') === 'true';
+      if (!isTooltipClosed && themeTooltip) {
+        setTimeout(() => {
+          // Check again in case they clicked the theme toggle during the delay
+          if (localStorage.getItem('theme-tooltip-closed') !== 'true') {
+            themeTooltip.classList.add('show');
+          }
+        }, 1500);
+      }
+
+      // Bind tooltip close button
+      if (closeThemeTooltip) {
+        closeThemeTooltip.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dismissTooltip();
+        });
+      }
+
+      // Bind tooltip itself to dismiss when clicked
+      if (themeTooltip) {
+        themeTooltip.addEventListener('click', () => {
+          dismissTooltip();
+        });
+      }
+
+      themeToggleBtn.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateThemeButton(theme);
+        dismissTooltip(); // Auto-dismiss tooltip when user toggles theme
+      });
+    }
+  </script>
+</body>
+</html>
