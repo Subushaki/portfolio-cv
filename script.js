@@ -7,6 +7,16 @@ const cursorGlow = document.getElementById('cursorGlow');
 const projectCards = document.querySelectorAll('.project-card');
 const animateElements = document.querySelectorAll('.animate-on-scroll');
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+});
+
 // ========== NAVBAR SCROLL EFFECT ==========
 let lastScrollY = 0;
 
@@ -146,8 +156,8 @@ document.addEventListener('mousemove', (e) => {
 
 function animateCursorGlow() {
   // Smooth following
-  glowX += (cursorX - glowX) * 0.08;
-  glowY += (cursorY - glowY) * 0.08;
+  glowX += (cursorX - glowX) * 0.12;
+  glowY += (cursorY - glowY) * 0.12;
 
   cursorGlow.style.left = glowX + 'px';
   cursorGlow.style.top = glowY + 'px';
@@ -273,6 +283,34 @@ statNumbers.forEach(stat => statObserver.observe(stat));
 
 console.log('🚀 Portfolio sitesi başarıyla yüklendi!');
 
+// ========== CONTACT FORM ==========
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+if (contactForm && formStatus) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (!name || !email || !message) {
+      formStatus.textContent = 'Lütfen tüm alanları doldur.';
+      formStatus.classList.add('error');
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio mesajı: ${name}`);
+    const body = encodeURIComponent(`Ad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`);
+
+    window.location.href = `mailto:emirhan.bdt@gmail.com?subject=${subject}&body=${body}`;
+    formStatus.textContent = 'E-posta uygulamanız açıldı. Teşekkür ederim!';
+    formStatus.classList.remove('error');
+    contactForm.reset();
+  });
+}
+
 // ========== THEME & TOOLTIP TOGGLE ==========
 const themeToggleBtn = document.getElementById('themeToggleBtn');
 const themeTooltip = document.getElementById('themeTooltip');
@@ -328,3 +366,23 @@ if (themeToggleBtn) {
     dismissTooltip(); // Auto-dismiss tooltip when user toggles theme
   });
 }
+
+/*==============================
+SCROLL PROGRESS
+==============================*/
+
+const scrollProgress =
+document.getElementById("scrollProgress");
+
+window.addEventListener("scroll",()=>{
+
+const totalHeight=
+document.documentElement.scrollHeight-
+window.innerHeight;
+
+const progress=
+(window.scrollY/totalHeight)*100;
+
+scrollProgress.style.width=progress+"%";
+
+});

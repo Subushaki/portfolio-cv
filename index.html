@@ -13,7 +13,7 @@
   </script>
 </head>
 <body>
-
+  <div id="scrollProgress"></div>
   <!-- Animated Background -->
   <div class="bg-animation">
     <div class="bg-orb"></div>
@@ -27,7 +27,7 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
-      <div class="navbar-logo">⟨ E.BADAT ⟩</div>
+      <div class="navbar-logo"><a href="index.html">⟨ E.BADAT ⟩</a></div>
       <ul class="navbar-links" id="navLinks">
         <li><a href="#hero">Ana Sayfa</a></li>
         <li><a href="#about">Hakkımda</a></li>
@@ -57,42 +57,73 @@
     <!-- ==================== HERO ==================== -->
     <section class="hero" id="hero">
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="dot"></span>
-          Yeni şeyler öğrenmeye açık
-        </div>
-        <p class="hero-greeting">Selam, ben</p>
-        <h1 class="hero-name">
-          <span class="gradient-text">Emirhan BADAT</span>
-        </h1>
-        <a href="profiles.html" class="hero-nickname" title="Oyun profillerimi gör">
-          @Subushaki
-        </a>
-        <p class="hero-tagline">
-          Sivil Havacılık mezunu, yazılıma meraklı, survival oyun bağımlısı 
-          ve ortaokuldan beri labirent çizen bir tuhaf adam. 
-          Hobi olarak web siteleri yapıyor, Roblox'ta oyun geliştiriyor 
-          ve tahta yay üretiyorum. Evet, tahta yay. 🏹
-        </p>
-        <div class="hero-tags">
-          <span class="hero-tag">💻 Web Geliştirme</span>
-          <span class="hero-tag">🎮 Oyun & Modlama</span>
-          <span class="hero-tag">🤖 Yapay Zeka Meraklısı</span>
-          <span class="hero-tag">🏹 Tahta Yay Yapımı</span>
-          <span class="hero-tag">🧩 Labirent Tasarımı</span>
-          <span class="hero-tag">🖥️ Donanım & PC Toplama</span>
-          <span class="hero-tag">🌍 Dil Öğrenme</span>
-        </div>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-primary">
-            Projelerimi Keşfet
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+        <div class="hero-info">
+          <h1 class="hero-name">
+            <span class="gradient-text">Emirhan BADAT</span>
+          </h1>
+          <a href="profiles.html" class="hero-nickname" title="Oyun profillerimi gör">
+            @Subushaki
           </a>
-          <a href="#contact" class="btn-secondary">
-            İletişime Geç
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </a>
+          <p class="hero-tagline">
+            Sivil Havacılık mezunuyum; yazılım dünyasına, oyun geliştirmeye ve donanım teknolojilerine meraklıyım. 
+            Boş zamanlarımda ahşap zanaatkarlığı (tahta yay yapımı) ve labirent tasarımlarıyla uğraşıyorum. 🏹
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag">💻 Web Geliştirme</span>
+            <span class="hero-tag">🎮 Oyun & Modlama</span>
+            <span class="hero-tag">🤖 Yapay Zeka Meraklısı</span>
+            <span class="hero-tag">🏹 Tahta Yay Yapımı</span>
+            <span class="hero-tag">🧩 Labirent Tasarımı</span>
+            <span class="hero-tag">🖥️ Donanım & PC Toplama</span>
+            <span class="hero-tag">🌍 Dil Öğrenme</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#projects" class="btn-primary">
+              Projelerimi Keşfet
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#contact" class="btn-secondary">
+              İletişime Geç
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </a>
+            <a href="portfolio-cv.zip" class="btn-secondary btn-download" download>
+              CV İndir
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+            </a>
+          </div>
         </div>
+
+
+        <div class="hero-preview">
+          <div class="preview-window">
+              <div class="preview-top">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+              <div class="preview-body">
+                  <h3>👨‍💻 Emirhan BADAT</h3>
+                  <p>Web Developer</p>
+                  <p>AI Enthusiast</p>
+                  <p>Roblox Creator</p>
+                  <div class="preview-bars">
+                      <div>
+                          HTML
+                          <div><span style="width:92%"></span></div>
+                      </div>
+                      <div>
+                          CSS
+                          <div><span style="width:86%"></span></div>
+                      </div>
+                      <div>
+                          JavaScript
+                          <div><span style="width:72%"></span></div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
       </div>
     </section>
 
@@ -100,27 +131,20 @@
     <section class="section" id="about">
       <div class="section-header animate-on-scroll">
         <div class="section-label">Hakkımda</div>
-        <h2 class="section-title">Kim Bu Adam?</h2>
+        <h2 class="section-title">Hikayem ve Yolculuğum</h2>
         <p class="section-subtitle">Biraz karışık bir profil ama anlatayım.</p>
       </div>
 
       <div class="about-grid">
         <div class="about-text animate-on-scroll">
           <p>
-            <strong>Sivil Hava Ulaştırma İşletmeciliği</strong> önlisans mezunuyum ama hayat beni 
-            teknoloji ve yazılım dünyasına çekti. Klasik bir "eğitim aldım, sertifikam var" hikayesi 
-            değil bu — tamamen meraktan ve hobi olarak öğreniyorum.
+            <strong>Sivil Hava Ulaştırma İşletmeciliği</strong> mezunuyum. Havacılık eğitimimin ardından teknoloji ve yazılıma olan ilgimi keşfettim; bu alanda tamamen kendi merakımla and projeler geliştirerek kendimi eğitiyorum.
           </p>
           <p>
-            Web geliştirme ile <strong>2024'ten beri</strong> uğraşıyorum. HTML, CSS öğrenirken 
-            bir yandan da yapay zeka araçlarının yardımıyla projeler çıkarmaya çalışıyorum. 
-            Doğru düzgün bir kurs almadım, "yaparak öğren" felsefesiyle ilerliyorum.
+            Web geliştirme ile <strong>2024 yılından beri</strong> ilgileniyorum. HTML, CSS and JavaScript öğrenirken modern yapay zeka araçlarını iş akışıma dahil ederek pratik ve çalışan projeler üretiyorum.
           </p>
           <p>
-            Ama beni asıl farklı kılan şey hobilerim: <strong>Ortaokuldan beri kareli defterlere 
-            labirent çiziyorum</strong> (2015'ten beri). Ayrıca <strong>tahta yay üretiyorum</strong>. 
-            Bir de tabii ki survival oyunlar — başta <strong>Minecraft</strong> olmak üzere 
-            her türlü hayatta kalma oyununun bağımlısıyım.
+            Yazılımın yanında yaratıcılığımı besleyen farklı ilgi alanlarım var: <strong>2015'ten beri</strong> kareli defterlere özgün labirentler çiziyor ve ahşap spatula çubuklarından <strong>tahta yaylar üretiyorum</strong>. Ayrıca survival oyunlarının sunduğu stratejik dünyaları yakından takip ediyorum.
           </p>
         </div>
 
@@ -194,6 +218,20 @@
             <div class="interest-name">Aktif Yapay Zekalar</div>
             <div class="interest-desc">Claude Opus, Gemini (High), KIMI2</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VISION ==================== -->
+    <section class="section animate-on-scroll" id="vision">
+      <div class="section-header">
+        <div class="section-label">Vizyonum</div>
+        <h2 class="section-title">Teknoloji ve Üretim Felsefem</h2>
+        <p class="section-subtitle">Yapay zeka çağında öğrenme ve üretme üzerine düşüncelerim.</p>
+      </div>
+      <div class="vision-card">
+        <div class="vision-quote">
+          "Yapay zeka araçlarının sunduğu imkanları doğru yönlendirerek, tek başımıza koca bir geliştirici ekibi gibi çalışabileceğimiz bir çağdayız. Benim için kod yazmak, tıpkı bir tahta yay yontmak veya kare kare labirent çizmek gibi; sabır, doğru araçlar ve sürekli pratik gerektiren bir üretim disiplinidir."
         </div>
       </div>
     </section>
@@ -558,7 +596,7 @@
     <section class="section" id="skills">
       <div class="section-header animate-on-scroll">
         <div class="section-label">Yetenekler</div>
-        <h2 class="section-title">Neler Biliyorum (ve Öğreniyorum)</h2>
+        <h2 class="section-title">Neler Yapabiliyorum</h2>
         <p class="section-subtitle">Uzman değilim ama öğrenmeye devam ediyorum.</p>
       </div>
 
@@ -607,9 +645,9 @@
         <div class="skill-group animate-on-scroll">
           <div class="skill-group-title">
             <span class="skill-group-icon">🌍</span>
-            Dil Bilgisi
+            Dil Yetkinliği
           </div>
-          <div class="lang-skills">
+          <div class="lang-skills-refined">
             <div class="lang-item">
               <div class="lang-header">
                 <span class="lang-flag">🇬🇧</span>
@@ -617,35 +655,11 @@
                 <span class="lang-level level-a2">A2</span>
               </div>
               <div class="lang-bar"><div class="lang-bar-fill" style="width: 33%"></div></div>
-              <div class="lang-note">B2'ye kadar kurumda eğitim alıyorum</div>
+              <div class="lang-note">B2 seviyesine kadar aktif dil eğitimi alıyorum.</div>
             </div>
-            <div class="lang-item">
-              <div class="lang-header">
-                <span class="lang-flag">🇮🇹</span>
-                <span class="lang-name">İtalyanca</span>
-                <span class="lang-level level-a1">A1</span>
-              </div>
-              <div class="lang-bar"><div class="lang-bar-fill" style="width: 17%"></div></div>
-              <div class="lang-note">Kendi çabamla, günlük basit cümleler</div>
-            </div>
-            <div class="lang-item">
-              <div class="lang-header">
-                <span class="lang-flag">🇸🇦</span>
-                <span class="lang-name">Arapça</span>
-                <span class="lang-level level-a1">A1</span>
-              </div>
-              <div class="lang-bar"><div class="lang-bar-fill" style="width: 17%"></div></div>
-              <div class="lang-note">Öğrenmeyi planlıyorum</div>
-            </div>
-            <div class="lang-item">
-              <div class="lang-header">
-                <span class="lang-flag">🇩🇪</span>
-                <span class="lang-name">Almanca</span>
-                <span class="lang-level level-soon">Yakında</span>
-              </div>
-              <div class="lang-bar"><div class="lang-bar-fill" style="width: 5%"></div></div>
-              <div class="lang-note">İngilizce kursumla hediye A1 kursu alacağım</div>
-            </div>
+            <p class="lang-extra-note">
+              İngilizcenin yanı sıra İtalyanca, Almanca ve Arapça dillerine, dil öğrenme kültürüne karşı yoğun bir kişisel merakım bulunuyor.
+            </p>
           </div>
         </div>
         <div class="skill-group animate-on-scroll">
@@ -692,7 +706,7 @@
           <a href="https://github.com/Subushaki" target="_blank" rel="noopener" class="contact-card animate-on-scroll">
             <div class="contact-icon">🐙</div>
             <div>
-              <div class="contact-label">GitHub (Geliştirici Profili)</div>
+              <div class="contact-label">GitHub (Geliştirici Profilisi)</div>
               <div class="contact-value">github.com/Subushaki</div>
             </div>
           </a>
