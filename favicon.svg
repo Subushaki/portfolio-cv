@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Minimalist luxury monogram with outer capsule border (Bugatti style) -->
+  <style>
+    path, rect {
+      fill: none;
+      stroke: #1d1d1f; /* Light mode color */
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.3s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      path, rect {
+        stroke: #f0f0f5; /* Dark mode color */
+      }
+    }
+  </style>
+  <!-- Outer border capsule -->
+  <rect x="4" y="3" width="24" height="26" rx="12" ry="12" />
+  <!-- EB Monogram -->
+  <path d="M 16,7 L 16,25 
+           M 9,7 L 16,7 
+           M 11,16 L 16,16 
+           M 9,25 L 16,25 
+           M 16,7 C 21.5,7 22.5,16 16,16 
+           C 22.5,16 21.5,25 16,25" />
+</svg>
